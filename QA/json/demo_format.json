@@ -1,0 +1,20 @@
+{
+  "train": [
+    {
+      "question_type": 5,
+      "question": "有哪些班次最终到达嘉兴南",
+      "question_template": "有哪些{train_type}最终到达{station}",
+      "topic_entity": "['班次', '嘉兴南站']",
+      "cypher": "MATCH (s:Station)<-[:`途径`]-(id:TrainNode)-[:`站点性质`]->(:TrainInfo{name:'1'}) WHERE s.name='嘉兴南站' and id.name=~'.*-.*' WITH split(id.name, '-')[0] AS train_no RETURN train_no",
+      "answer_type": "train_no",
+      "answer": "['G1954', 'G1951', 'G155', 'G1422', 'D3062', 'D3059']",
+      "id": 1519
+    },
+    {},
+    {}
+  ],
+  "dev": [],
+  "test": []
+}
+
+
